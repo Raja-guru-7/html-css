@@ -1,0 +1,92 @@
+nav{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+h1,ul,li{
+  display: inline-block;
+}
+ul{
+  margin-left:60%;
+}
+.s{
+  margin: 15px;
+  text-align: center;
+padding: 15px;
+border-radius: 5px;
+  
+
+}
+li:hover{
+  color: white;
+  transition: 0.5s;
+}
+li:active{
+  color: red;
+  transition: 0.5s;
+}
+
+li{
+  color: grey;
+  cursor: pointer;
+}
+input{
+  width: 50%;
+  border-radius: 5px;
+}
+.box{
+  width: 20%;
+  border-color: black;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  display:inline-block;
+  vertical-align: top;
+  margin: 10px;
+  text-align: center;
+ 
+}
+.box img{
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  height: 250px;
+  border-radius: 5px;
+
+
+}
+
+.box{
+  padding: 8px;
+}
+
+.box:hover{
+  cursor: pointer;
+  transition: 0.5s;
+  background-color: black;
+  color: white;
+  border-color: white;
+
+}
+
+.box:active{
+  cursor: pointer;
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+.about{
+  text-align: center;
+  padding: 10px;
+}
+
+.footer{
+  background-color: black;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}

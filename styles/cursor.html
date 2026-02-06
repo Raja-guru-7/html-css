@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3D Starfield</title>
+<style>
+  * { margin: 0; padding: 0; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let width = canvas.width = innerWidth;
+let height = canvas.height = innerHeight;
+let center = { x: width / 2, y: height / 2 };
+
+let mouse = { x: 0, y: 0 };
+window.addEventListener("mousemove", e => {
+    mouse.x = (e.clientX - center.x) / 50;
+    mouse.y = (e.clientY - center.y) / 50;
+});
+
+let starCount = 800;
+let stars = [];
+let speed = 10;
+
+class Star {
+    constructor() {
+        this.x = (Math.random() - 0.5) * width * 2;
+        this.y = (Math.random() - 0.5) * height * 2;
+        this.z = Math.random() * width;
+        this.pz = this.z;
+        const colors = ['#ffffff', '#00ffff', '#0099ff'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    update() {
+        this.z = this.z - speed;
+        if (this.z < 1) {
+            this.z = width;
+            this.x = (Math.random() - 0.5) * width * 2;
+            this.y = (Math.random() - 0.5) * height * 2;
+            this.pz = this.z;
+        }
+    }
+
+    draw() {
+        let offsetX = this.x - mouse.x * 2;
+        let offsetY = this.y - mouse.y * 2;
+
+        const sx = (offsetX / this.z) * width / 2 + center.x;
+        const sy = (offsetY / this.z) * height / 2 + center.y;
+
+        const px = (offsetX / this.pz) * width / 2 + center.x;
+        const py = (offsetY / this.pz) * height / 2 + center.y;
+
+        this.pz = this.z;
+
+        if (sx < 0 || sx > width || sy < 0 || sy > height) return;
+
+        const r = (1 - this.z / width) * 4;
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(sx, sy);
+        ctx.lineWidth = r;
+        ctx.strokeStyle = this.color;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+    }
+}
+
+for (let i = 0; i < starCount; i++) {
+    stars.push(new Star());
+}
+
+function animate() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+    ctx.fillRect(0, 0, width, height);
+
+    stars.forEach(star => {
+        star.update();
+        star.draw();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+    width = canvas.width = innerWidth;
+    height = canvas.height = innerHeight;
+    center.x = width / 2;
+    center.y = height / 2;
+});
+</script>
+</body>
+</html>
