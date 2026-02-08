@@ -1,0 +1,67 @@
+ /* div{
+  background-color:yellowgreen;
+  color: #fff;
+  padding:10px;
+  display:flex;
+  justify-content: space-between;
+  width: 15%;
+  flex-wrap: wrap;
+  
+}
+
+p{
+  background-color:black;
+  margin: 2px;
+  padding: 5px;
+  
+} */
+
+*{
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: darkgrey;
+}
+
+.titlebar{
+  background-color:whitesmoke;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+
+
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 10px;
+  
+  border-radius: 5px;
+  background-color: whitesmoke;
+  margin: 10px;
+  
+}
+
+img{
+  border-radius: 10px;
+  
+}
+
+.flex-container div{
+  width: 200px;
+  flex-basis: 20%;
+  margin: 5px;
+}
