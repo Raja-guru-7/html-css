@@ -1,0 +1,19 @@
+*{
+  margin:0;
+}
+
+
+
+div{
+  background-color: yellow;
+  height: 100vh;
+  background-image: url(../thumbnails/123.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* filter: brightness(2); */
+  /* filter: blur(2px); */
+  /* filter: contrast(30%); */
+  /* filter: grayscale(100%); */
+  /* filter: saturate(200%); */
+}
